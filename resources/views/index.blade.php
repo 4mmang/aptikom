@@ -225,44 +225,23 @@
         {{-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> --}}
       </div><!-- End Section Title -->
         <div class="row g-4">
-          <!-- Berita 1 -->
+          @foreach ($berita as $b)
           <div class="col-md-4">
             <div class="card h-100">
-              <img src="assets/img/berita/1.jpg" class="card-img-top" alt="Gambar Berita">
+              <img src="{{ asset('storage/' . $b->cover) }}" class="card-img-top" alt="Gambar Berita">
               <div class="card-body">
-                <h5 class="card-title">Healthkathon 2024 kerjasama APTIKOM dengan BPJS Kesehatan</h5>
-                <p class="card-text">
-                  Salam sehat Healthkathonian, BPJS Kesehatan bekerjasama dengan APTIKOM dengan terus berkomitmen untuk
-                </p>
-                <a href="{{ url('berita1')}}" class="btn btn-primary">Baca Selengkapnya</a>
+                <h5 class="card-title">{{ $b->judul }}
+                </h5>
+                {{-- <p class="card-text">
+                  Salam sehat Healthkathonian, BPJS Kesehatan bekerjasama dengan APTIKOM dengan
+                  terus berkomitmen untuk
+                </p> --}}
+                <a href="{{ url('berita/detail/' . $b->id) }}" class="btn btn-primary mt-3 mb-2">Baca
+                  Selengkapnya</a>
               </div>
             </div>
           </div>
-          <!-- Berita 2 -->
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img src="assets/img/berita/2.jpg" class="card-img-top" alt="Gambar Berita">
-              <div class="card-body">
-                <h5 class="card-title">PKS/MoU RAKORNAS APTIKOM TAHUN 2024</h5>
-                <p class="card-text">
-                  Yth, Bpk/Ibu Pimpinan Perguruan Tinggi, Sampai bertemu pada RAKORNAS APTIKOM 2024 (24</p>
-                <a href="{{ url('berita2')}}" class="btn btn-primary">Baca Selengkapnya</a>
-              </div>
-            </div>
-          </div>
-          <!-- Berita 3 -->
-          <div class="col-md-4">
-            <div class="card h-100">
-              <img src="assets/img/berita/3.jpg" class="card-img-top" alt="Gambar Berita">
-              <div class="card-body">
-                <h5 class="card-title">SELAMAT DATANG DI RAKORNAS APTIKOM TAHUN 2024</h5>
-                <p class="card-text">
-                  Yth Bapak dan Ibu, Pengurus Pusat, Provinsi, dan Keluarga Besar APTIKOM APTIKOM
-                </p>
-                <a href="{{ url('berita3')}}" class="btn btn-primary">Baca Selengkapnya</a>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
       </div>
     </section>

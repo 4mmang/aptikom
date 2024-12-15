@@ -84,7 +84,8 @@ use App\Models\Publikasi;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('index');
+    $berita = Berita::latest()->take(3)->get();
+    return view('index', compact('berita'));
 });
 
 Route::get('/profil-sejarah', function () {
